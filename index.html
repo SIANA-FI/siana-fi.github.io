@@ -1,0 +1,934 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mahamat Congo-Sienne</title>
+<meta name="description" content="Portfolio de Mahamat Congo-Sienne — étudiant en DCG. Comptabilité, finance, data et intelligence artificielle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Direction : titre financier — papier, encre, guillochis.
+   Layout : hero avec carte bancaire, bandeau ticker de résultats réels, compétences prouvées par contexte. */
+:root{
+  /* Proposition 3 — « titre financier » : papier beige, encre bleu nuit, bordeaux et bronze.
+     Palette : #E8D9C4 · #785D32 · #3E160C · #050A30 */
+  --bg:#E8D9C4; --bg-2:#E1CFB4; --surface:#F1E7D7; --surface-2:#EADBC5; --surface-3:#DCC7A8;
+  --line:rgba(5,10,48,.10); --line-2:rgba(5,10,48,.18); --line-3:rgba(5,10,48,.32);
+  --text:#050A30; --muted:#4B4762; --dim:#76695A;
+  --acc:#3E160C; --acc-2:#785D32; --acc-ink:#E8D9C4; --bronze:#785D32; --bronze-d:#785D32; --oxblood:#3E160C; --navy:#050A30;
+  --acc-a:rgba(62,22,12,.07); --acc-b:rgba(62,22,12,.28);
+  --f-display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --f-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-mono:"Geist Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:16px; --r-sm:10px; --max:1200px; --gutter:clamp(16px,4vw,40px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+.ink{--text:#E8D9C4;--muted:#B7AE9F;--dim:#918B9C;--line:rgba(232,217,196,.10);--line-2:rgba(232,217,196,.18);--line-3:rgba(232,217,196,.30);
+  --acc:#E8D9C4;--acc-ink:#050A30;--acc-a:rgba(232,217,196,.08);--acc-b:rgba(232,217,196,.26);--bronze:#C9A46A;--bg-2:#050A30;--surface:#0A1140;color:var(--text)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font-family:var(--f-sans);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(55% 45% at 85% -5%,rgba(62,22,12,.12),transparent 70%),
+    radial-gradient(40% 35% at 0% 30%,rgba(120,93,50,.14),transparent 70%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(70% 50% at 60% 0%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(70% 50% at 60% 0%,#000 20%,transparent 75%)}
+main,footer,.nav{position:relative;z-index:1}
+a{color:inherit}
+::selection{background:var(--acc);color:var(--acc-ink)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gutter)}
+h1,h2,h3{font-weight:600;letter-spacing:-.03em;line-height:1.05;text-wrap:balance;margin:0}
+h1,h2,.statement,.contact h2{font-family:var(--f-display);font-weight:500;letter-spacing:-.015em}
+.hl{font-family:var(--f-display);font-style:italic;font-weight:500}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.hl{background:linear-gradient(100deg,var(--oxblood) 5%,var(--bronze) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- Navigation ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:calc(env(safe-area-inset-top,0px) + 14px)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px;padding:0 10px 0 14px;border-radius:16px;border:1px solid transparent;transition:background .3s,border-color .3s,backdrop-filter .3s}
+.nav.scrolled .nav-in{background:rgba(241,231,215,.82);border-color:var(--line-2);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:-.01em;white-space:nowrap}
+.mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(140deg,var(--acc),var(--bronze-d));color:var(--acc-ink);display:grid;place-items:center;font-family:var(--f-mono);font-size:.66rem;font-weight:500}
+.links{display:flex;align-items:center;gap:2px;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:8px 12px;border-radius:9px;text-decoration:none;font-size:.88rem;color:var(--muted);transition:color .2s,background .2s}
+.links a:hover{color:var(--text);background:var(--surface-2)}
+.links a.active{color:var(--acc)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.menu-btn{display:none;width:42px;height:42px;border-radius:11px;border:1px solid var(--line-2);background:var(--surface);cursor:pointer;align-items:center;justify-content:center}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{display:block;width:16px;height:1.5px;background:var(--text);position:relative;transition:transform .25s var(--ease)}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0}
+.menu-btn span::before{top:-5px}.menu-btn span::after{top:5px}
+.nav.open .menu-btn span{background:transparent}
+.nav.open .menu-btn span::before{transform:translateY(5px) rotate(45deg)}
+.nav.open .menu-btn span::after{transform:translateY(-5px) rotate(-45deg)}
+
+/* ---------- Boutons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:12px;font-family:var(--f-sans);font-weight:600;font-size:.92rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,border-color .25s,box-shadow .25s,color .25s;white-space:nowrap}
+.btn svg{width:16px;height:16px;flex:none;transition:transform .25s var(--ease)}
+.btn-primary{background:var(--navy);color:#E8D9C4;box-shadow:0 0 0 0 rgba(5,10,48,0)}
+.btn-primary:hover{background:var(--oxblood);transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(5,10,48,.55)}
+.btn-ghost{background:rgba(255,255,255,.02);color:var(--text);border-color:var(--line-2)}
+.btn-ghost:hover{border-color:var(--acc);color:var(--acc);transform:translateY(-1px)}
+.btn:hover svg.arr{transform:translateX(3px)}
+.btn-sm{padding:9px 14px;font-size:.84rem;border-radius:10px}
+
+/* ---------- Hero ---------- */
+.hero{padding-block:clamp(130px,15vw,170px) clamp(48px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(36px,6vw,80px);align-items:center}
+.status{display:inline-flex;align-items:center;gap:10px;padding:7px 12px 7px 10px;border-radius:999px;border:1px solid var(--line-2);background:rgba(241,231,215,.7);color:var(--muted);margin-bottom:28px}
+.status .dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(5,10,48,.6);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(5,10,48,.55)}70%,100%{box-shadow:0 0 0 9px rgba(5,10,48,0)}}
+.hero h1{font-size:clamp(3rem,7.6vw,6.2rem);font-weight:500;letter-spacing:-.02em;line-height:.95}
+.hero h1 .l2{display:block}
+.tagline{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.tagline span{padding:6px 12px;border-radius:999px;border:1px solid var(--line-2);font-size:.88rem;color:var(--text);background:rgba(255,255,255,.02)}
+.tagline span:first-child{border-color:var(--acc-b);color:var(--acc);background:var(--acc-a)}
+.hero .lead{margin-top:22px;max-width:50ch;color:var(--muted);font-size:1.08rem}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(20px,4vw,48px);margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.hero-stats b{display:block;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.hero-stats span{font-size:.82rem;color:var(--muted)}
+
+/* Carte bancaire */
+.card-stage{position:relative;perspective:1200px;padding:10px 0}
+.bcard{position:relative;width:100%;max-width:440px;aspect-ratio:1.586;margin-left:auto;border-radius:22px;padding:clamp(18px,3vw,26px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+  background:linear-gradient(135deg,#4A1D10 0%,#3E160C 30%,#1A0F33 62%,#050A30 100%);border:1px solid rgba(5,10,48,.18);
+  box-shadow:0 40px 80px -30px rgba(5,10,48,.55),0 0 0 1px rgba(0,0,0,.4) inset,0 1px 0 rgba(255,255,255,.08) inset;
+  transform-style:preserve-3d;transition:transform .5s var(--ease);will-change:transform}
+.guil{position:absolute;inset:0;width:100%;height:100%;opacity:.55;pointer-events:none}
+.bcard::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at var(--mx,30%) var(--my,0%),rgba(232,217,196,.22),transparent 60%);transition:background .2s;pointer-events:none}
+.bcard::after{content:"";position:absolute;right:-30%;top:-40%;width:90%;height:160%;border-radius:50%;border:1px solid rgba(232,217,196,.10);box-shadow:0 0 0 40px rgba(232,217,196,.025),0 0 0 80px rgba(232,217,196,.02);pointer-events:none}
+.bc-top,.bc-bot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.bc-brand{font-family:var(--f-display);font-weight:500;font-size:1.35rem;letter-spacing:0}
+.bc-brand small.pre{margin:0 0 6px;text-transform:uppercase;color:var(--bronze)}
+.bc-brand small{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;color:var(--muted);font-weight:400;margin-top:2px}
+.chip{width:44px;height:34px;border-radius:7px;background:linear-gradient(135deg,#E8D9C4,#785D32);position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.chip::before,.chip::after{content:"";position:absolute;background:rgba(60,45,15,.35)}
+.chip::before{left:0;right:0;top:50%;height:1px}.chip::after{top:0;bottom:0;left:50%;width:1px}
+.bc-num{position:relative;z-index:1;font-family:var(--f-mono);font-size:clamp(.92rem,1.9vw,1.15rem);letter-spacing:.16em;color:var(--text);display:flex;gap:1.1em;flex-wrap:wrap}
+.bc-num span:nth-child(odd){color:var(--bronze)}
+.bc-target{position:relative;z-index:1;display:grid;gap:4px;font-family:var(--f-mono);font-size:clamp(.8rem,1.6vw,.98rem);letter-spacing:.1em;text-transform:uppercase}
+.bc-target span:first-child{color:var(--bronze)}
+.bc-target span::before{content:"→ ";color:var(--dim)}
+.serial{position:relative;z-index:1;color:var(--dim);font-size:.58rem;margin-top:-6px}
+.bc-bot .k{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.bc-bot .v{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;margin-top:2px;text-transform:uppercase}
+.bc-logo{display:flex}.bc-logo i{width:26px;height:26px;border-radius:50%;background:var(--acc);opacity:.9}.bc-logo i+i{background:var(--bronze);margin-left:-10px;opacity:.85}
+.notif{position:absolute;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(241,231,215,.92);border:1px solid var(--line-2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 20px 40px -20px rgba(5,10,48,.35);min-width:230px;animation:float 6s ease-in-out infinite}
+.notif .ic{width:34px;height:34px;border-radius:10px;background:var(--acc-a);border:1px solid var(--acc-b);display:grid;place-items:center;color:var(--acc);flex:none}
+.notif .ic svg{width:16px;height:16px}
+.notif b{display:block;font-size:.86rem;font-weight:600}
+.notif small{display:block;font-size:.74rem;color:var(--muted)}
+.notif .delta{margin-left:auto;font-family:var(--f-mono);font-size:.8rem;color:var(--acc);padding-left:8px;white-space:nowrap}
+.n1{left:-6%;bottom:18px}
+.n2{right:-4%;top:-42px;animation-delay:-3s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ---------- Ticker ---------- */
+.ticker{border-block:1px solid var(--line);background:var(--navy);overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--bg-2),transparent)}
+.ticker::after{right:0;background:linear-gradient(-90deg,var(--bg-2),transparent)}
+.ticker-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.tk{display:flex;align-items:center;gap:10px;padding:15px 28px;border-right:1px solid var(--line);white-space:nowrap;font-size:.88rem}
+.tk .sym{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;color:var(--muted)}
+.tk .val{font-family:var(--f-mono);font-weight:500;color:var(--acc);font-variant-numeric:tabular-nums}
+.tk .lbl{color:var(--text)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- Sections ---------- */
+section.block{padding-block:clamp(80px,10vw,130px)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px 40px;margin-bottom:clamp(36px,5vw,56px)}
+.sec-head .lhs{max-width:720px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--acc);margin-bottom:18px}
+.eyebrow::before{content:"";width:18px;height:1px;background:var(--acc)}
+.sec-head h2{font-size:clamp(2.2rem,5vw,3.8rem)}
+.sec-head p{margin-top:16px;max-width:58ch;color:var(--muted)}
+.sec-head .aside{color:var(--muted);font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em}
+
+.panel{background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:var(--r);position:relative}
+.panel.glow{transition:border-color .35s,transform .35s var(--ease),box-shadow .35s}
+.panel.glow:hover{border-color:var(--line-3);transform:translateY(-4px);box-shadow:0 30px 60px -30px rgba(5,10,48,.35),0 0 0 1px rgba(62,22,12,.06)}
+
+/* À propos */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px}
+.about-main{padding:clamp(26px,4vw,44px);display:grid;gap:20px;align-content:start}
+.about-main p.big{font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:500;letter-spacing:-.02em;line-height:1.35}
+.about-main p.sm{color:var(--muted)}
+.about-side{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.key{padding:20px;display:flex;flex-direction:column;justify-content:space-between;gap:26px;min-height:128px}
+.key .mono{color:var(--dim)}
+.key strong{font-weight:600;font-size:1.05rem;letter-spacing:-.01em;line-height:1.2}
+.key.main{background:linear-gradient(140deg,var(--oxblood) 0%,#D7BF9C 60%,var(--bronze) 100%);border-color:transparent;color:var(--acc-ink);grid-column:1/-1;min-height:110px}
+.key.main .mono{color:rgba(232,217,196,.7)}
+.key.main{color:#E8D9C4}
+.key.main strong{font-family:var(--f-display);font-weight:500;font-size:1.9rem}
+
+/* ---------- Projets ---------- */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{display:flex;flex-direction:column;overflow:hidden}
+.card.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.visual{position:relative;background:radial-gradient(90% 80% at 50% 30%,rgba(232,217,196,.08),transparent 70%),var(--bg-2);background-image:radial-gradient(90% 80% at 50% 30%,rgba(232,217,196,.08),transparent 70%),linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:auto,24px 24px,24px 24px;height:290px;display:grid;place-items:center;padding:22px;border-bottom:1px solid var(--line);overflow:hidden}
+.card.featured .visual{order:2;border-bottom:0;border-left:1px solid var(--line);height:auto;min-height:100%}
+.visual > *{position:relative;z-index:1;max-width:100%}
+.visual svg{width:100%;height:auto;display:block;transition:transform .6s var(--ease)}
+.card:hover .visual svg,.card:hover .visual .vis-inner{transform:scale(1.03)}
+.body{padding:clamp(22px,2.8vw,34px);display:flex;flex-direction:column;gap:16px;flex:1}
+.meta{display:flex;justify-content:space-between;gap:12px;color:var(--acc)}
+.meta .idx{color:var(--dim)}
+.card h3{font-family:var(--f-display);font-weight:500;letter-spacing:-.01em;font-size:clamp(1.7rem,2.8vw,2.2rem)}
+.card.featured h3{font-size:clamp(2.1rem,3.8vw,3rem)}
+.card .desc{color:var(--muted);font-size:.97rem;max-width:62ch}
+.mix{display:flex;flex-wrap:wrap;gap:6px}
+.mix span{font-size:.78rem;padding:4px 10px;border-radius:999px;background:var(--acc-a);color:var(--acc);border:1px solid var(--acc-b)}
+.feats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px;font-size:.9rem}
+.card:not(.featured) .feats{grid-template-columns:1fr}
+.feats li{display:flex;gap:10px;align-items:center;min-width:0;color:var(--text)}
+.feats li svg{width:14px;height:14px;flex:none;color:var(--acc)}
+.feats li.more{color:var(--muted)}
+.demo{font-size:.86rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.demo .co{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.06em;padding:4px 9px;border-radius:7px;border:1px solid var(--line-2);color:var(--bronze)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:5px 10px;border-radius:8px;border:1px solid var(--line-2);background:rgba(255,255,255,.02);font-size:.78rem;font-weight:500;color:var(--text);transition:border-color .25s,color .25s}
+.badge:hover{border-color:var(--acc);color:var(--acc)}
+.card-foot{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.card-acts{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.btn.gh svg{width:15px;height:15px}
+.flow{width:100%;max-width:300px;display:grid;transition:transform .6s var(--ease)}
+.flow div{display:flex;align-items:center;gap:12px;padding:10px 13px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;font-size:.84rem;font-weight:500}
+.flow div .mono{margin-left:auto;font-size:.58rem;color:var(--dim)}
+.flow div.end{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+.flow div.end .mono{color:rgba(232,217,196,.65)}
+.flow span.arrow{display:block;width:1px;height:10px;background:var(--line-3);margin-left:22px}
+
+/* ---------- Expérience ---------- */
+.xp-list{display:grid;gap:16px}
+.xp{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(18px,3vw,44px);padding:clamp(22px,3vw,34px)}
+.xp .co{display:grid;gap:8px;align-content:start}
+.xp .co .mono{color:var(--acc)}
+.xp .co h3{font-size:1.45rem}
+.xp .co .role{color:var(--text);font-weight:500}
+.xp .co .ctr{font-size:.82rem;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:14px}
+.kpi{padding:12px 14px;border-radius:12px;background:var(--bg);border:1px solid var(--line)}
+.kpi b{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:clamp(1.05rem,1.6vw,1.25rem);font-weight:600;letter-spacing:-.02em;color:var(--acc);font-variant-numeric:tabular-nums}
+.kpi b svg{width:13px;height:13px}
+.kpi span{display:block;font-size:.76rem;color:var(--muted);line-height:1.35;margin-top:3px}
+.xp ul{margin:0;padding:0;list-style:none;display:grid;gap:9px;color:var(--muted);font-size:.94rem}
+.xp ul li{display:grid;grid-template-columns:14px 1fr;gap:10px}
+.xp ul li::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--acc-2);margin-top:.6em;opacity:.8}
+.xp .badges{margin-top:16px}
+.edu{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.edu-item{padding:20px;display:flex;flex-direction:column;gap:6px}
+.edu-item .mono{color:var(--dim)}
+.edu-item b{font-weight:600;line-height:1.25}
+.edu-item span:last-child{font-size:.86rem;color:var(--muted)}
+.edu-item.cur{border-color:var(--acc-b);background:linear-gradient(180deg,rgba(5,10,48,.08),var(--bg-2))}
+.edu-item.cur .mono{color:var(--acc)}
+
+/* ---------- Compétences ---------- */
+.sk-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:20px;align-items:start}
+.sk-tabs{display:grid;gap:8px;position:sticky;top:96px}
+.sk-tab{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:16px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;cursor:pointer;transition:border-color .25s,background .25s}
+.sk-tab:hover{border-color:var(--line-3)}
+.sk-tab .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--surface-3);color:var(--muted);flex:none;transition:background .25s,color .25s}
+.sk-tab .ic svg{width:18px;height:18px}
+.sk-tab b{display:block;font-weight:600;font-size:.98rem}
+.sk-tab small{display:block;font-size:.76rem;color:var(--muted)}
+.sk-tab .cnt{margin-left:auto;font-family:var(--f-mono);font-size:.72rem;color:var(--dim)}
+.sk-tab[aria-selected="true"]{border-color:var(--acc-b);background:linear-gradient(90deg,rgba(5,10,48,.09),var(--surface))}
+.sk-tab[aria-selected="true"] .ic{background:var(--acc);color:var(--acc-ink)}
+.sk-tab[aria-selected="true"] .cnt{color:var(--acc)}
+.sk-board{padding:clamp(20px,3vw,30px)}
+.sk-board-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.sk-board-head h3{font-size:1.5rem}
+.sk-board-head .mono{color:var(--dim)}
+.sk-rows{display:grid}
+.sk-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:center;padding:15px 0;border-bottom:1px dashed var(--line);animation:rowIn .45s var(--ease) both}
+.sk-row:last-child{border-bottom:0}
+.sk-row .nm{display:flex;align-items:center;gap:12px;font-weight:500}
+.sk-row .nm i{width:8px;height:8px;border-radius:2px;background:var(--acc);flex:none;box-shadow:0 0 12px rgba(5,10,48,.5)}
+.sk-row .ctx{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.ctx span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.04em;padding:4px 8px;border-radius:6px;border:1px solid var(--line-2);color:var(--muted);white-space:nowrap}
+.ctx span.pro{color:var(--bronze);border-color:rgba(120,93,50,.38)}
+.ctx span.prj{color:var(--acc);border-color:var(--acc-b)}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:10px;height:10px;border-radius:3px;border:1px solid}
+@keyframes rowIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.stack{margin-top:20px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stack-col{padding:20px;display:grid;gap:12px;align-content:start}
+.stack-col .mono{color:var(--dim)}
+.tool{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:.88rem;font-weight:500;transition:border-color .25s,transform .25s var(--ease)}
+.tool:hover{border-color:var(--acc-b);transform:translateX(3px)}
+.tool i{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;font-style:normal;font-family:var(--f-mono);font-size:.62rem;background:var(--surface-3);color:var(--acc);flex:none}
+.langs{margin-top:12px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:16px 20px}
+.langs .mono{color:var(--dim);margin-right:8px}
+
+/* ---------- Engagement ---------- */
+.focus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.focus-item{padding:24px;display:flex;flex-direction:column;gap:12px}
+.focus-item .top{display:flex;justify-content:space-between;align-items:center}
+.focus-item .mono{color:var(--acc)}
+.focus-item .top svg{width:16px;height:16px;color:var(--dim);transition:transform .3s var(--ease),color .3s}
+.focus-item:hover .top svg{transform:rotate(-45deg);color:var(--acc)}
+.focus-item h3{font-size:1.25rem}
+.focus-item p{color:var(--muted);font-size:.92rem}
+.commit{margin-top:12px;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:center}
+.commit .badge-r{grid-row:span 2;padding:10px 14px;border-radius:12px;background:rgba(120,93,50,.08);border:1px solid rgba(120,93,50,.35);color:var(--bronze);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.commit b{font-weight:600;font-size:1.08rem}
+.commit p{color:var(--muted);font-size:.93rem}
+.statement{margin-top:44px;font-size:clamp(1.4rem,3vw,2.2rem);font-weight:500;letter-spacing:-.025em;line-height:1.25;max-width:30ch;text-wrap:balance}
+
+/* ---------- Contact ---------- */
+.contact{position:relative;overflow:hidden;border-radius:26px;padding:clamp(30px,6vw,72px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:end;border:1px solid var(--acc-b);
+  background:radial-gradient(70% 90% at 0% 100%,rgba(62,22,12,.95),transparent 65%),radial-gradient(60% 70% at 100% 0%,rgba(120,93,50,.3),transparent 60%),var(--navy)}
+.contact h2{font-size:clamp(2.2rem,5.6vw,4.2rem);margin-top:14px}
+.contact p.sub{margin-top:18px;color:var(--muted);max-width:44ch}
+.channels{display:grid;gap:8px}
+.ch{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(5,10,48,.6);border:1px solid var(--line);text-decoration:none;color:var(--text);transition:border-color .25s,background .25s}
+a.ch:hover{border-color:var(--acc-b);background:rgba(232,217,196,.06)}
+.ch .mono{color:var(--dim)}
+.ch .val{font-weight:500;overflow-wrap:anywhere;min-width:0;font-size:.95rem}
+.ch .val.off{color:var(--dim);font-weight:400}
+.ch .go{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line-2);background:transparent;color:var(--text);cursor:pointer;transition:background .25s,border-color .25s,color .25s}
+.ch .go svg{width:15px;height:15px}
+a.ch:hover .go,.ch .go:hover{background:var(--acc);color:var(--acc-ink);border-color:var(--acc)}
+
+footer{padding-block:36px 48px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:28px}
+.foot nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--acc)}
+
+/* ---------- Dialog ---------- */
+dialog.pd{width:min(760px,calc(100vw - 32px));max-height:calc(100dvh - 48px);padding:0;border:1px solid var(--line-2);border-radius:20px;background:var(--surface);color:var(--text);box-shadow:0 50px 100px -30px rgba(5,10,48,.5)}
+dialog.pd::backdrop{background:rgba(5,10,48,.45);backdrop-filter:blur(4px)}
+dialog.pd[open]{animation:pop .35s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.pd-in{padding:clamp(24px,4vw,40px);display:grid;gap:22px}
+.pd-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.pd-top .mono{color:var(--acc)}
+.pd h3{font-size:clamp(1.8rem,4vw,2.5rem);margin-top:10px}
+.pd .x{flex:none;width:40px;height:40px;border-radius:11px;border:1px solid var(--line-2);background:var(--bg);cursor:pointer;display:grid;place-items:center;color:var(--text)}
+.pd .x:hover{border-color:var(--acc)}
+.pd .x svg{width:16px;height:16px}
+.pd p.d{color:var(--muted)}
+.pd h4{margin:0 0 10px;font-family:var(--f-mono);font-weight:400;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+.pd .feats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pd-actions{display:flex;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:22px}
+
+.toast{--acc:#050A30;position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;background:var(--acc);color:var(--acc-ink);font-weight:600;padding:10px 16px;border-radius:11px;font-size:.88rem;transition:opacity .3s,transform .3s var(--ease);pointer-events:none;z-index:80}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.reveal{transition:transform .8s var(--ease)}
+.js .reveal:not(.in){transform:translateY(16px)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1020px){
+  .links{position:absolute;top:calc(100% + 8px);left:var(--gutter);right:var(--gutter);flex-direction:column;align-items:stretch;gap:0;padding:8px;background:var(--surface);border:1px solid var(--line-2);border-radius:16px;display:none}
+  .nav.open .links{display:flex}
+  .nav.open .nav-in{background:rgba(241,231,215,.96);border-color:var(--line-2)}
+  .links a{padding:13px 12px;font-size:1rem}
+  .menu-btn{display:inline-flex}
+  .nav-in{position:relative}
+  .hero-grid{grid-template-columns:1fr}
+  .bcard{margin:0 auto}
+  .card-stage{max-width:520px;margin:0 auto;width:100%}
+  .about{grid-template-columns:1fr}
+  .card.featured{grid-template-columns:1fr}
+  .card.featured .visual{order:0;border-left:0;border-bottom:1px solid var(--line);min-height:280px}
+  .sk-wrap{grid-template-columns:1fr}
+  .sk-tabs{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stack{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .focus{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{grid-template-columns:1fr}
+  .xp{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  body{font-size:16px}
+  .projects{grid-template-columns:1fr}
+  .feats,.pd .feats{grid-template-columns:1fr}
+  .edu,.focus{grid-template-columns:1fr}
+  .stack{grid-template-columns:1fr}
+  .sk-row{grid-template-columns:1fr;gap:8px}
+  .sk-row .ctx{justify-content:flex-start;padding-left:20px}
+  .sk-tab small{display:none}
+  .hero-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .nav-right .btn-cv span{display:none}
+  .nav-right .btn-cv{padding:10px 12px}
+  .ch{grid-template-columns:70px minmax(0,1fr) auto}
+  .card-stage{padding:0;display:grid;gap:10px}
+  .notif{position:relative;inset:auto;min-width:0;max-width:none;animation:none}
+  .n2{order:2}.n1{order:3}
+  .commit{grid-template-columns:1fr}
+  .commit .badge-r{grid-row:auto;justify-self:start}
+}
+@media (max-width:420px){ .brand .nm{display:none} .sk-tabs{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .js .reveal:not(.in){transform:none}
+  .ticker-track{flex-wrap:wrap;width:auto}
+}
+</style>
+</head><body>
+
+<!-- ===================== NAVIGATION ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-in">
+      <a class="brand" href="#accueil" aria-label="Accueil"><span class="mark">MCS</span><span class="nm">Mahamat Congo-Sienne</span></a>
+      <ul class="links" id="links">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#a-propos">À propos</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#engagement">Engagement</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a class="btn btn-primary btn-sm btn-cv" data-cv href="#contact" aria-label="Consulter le CV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          <span>Mon CV</span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="links"><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="accueil">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status mono"><span class="dot"></span>Étudiant en DCG · Disponible en alternance</div>
+      <h1>Mahamat <span class="l2">Congo-<span class="hl">Sienne</span></span></h1>
+      <div class="tagline"><span>Comptabilité</span><span>Finance</span><span>Data</span><span>Intelligence artificielle</span></div>
+      <p class="lead">Étudiant en DCG, je construis des projets à la croisée de la finance, de la comptabilité et des nouvelles technologies.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#projets">Voir mes projets <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" data-cv href="#contact">Télécharger mon CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+
+    <div class="card-stage" role="img" aria-label="Recherche : alternance d'au moins 12 mois en cabinet d'expertise comptable ou de commissariat aux comptes, dans le cadre du DCG puis du DSCG">
+      <div class="bcard ink" id="bcard"><canvas class="guil" id="guil"></canvas>
+        <div class="bc-top">
+          <div class="bc-brand"><small class="pre">Je recherche</small>Une alternance en cabinet</div>
+          <div class="chip"></div>
+        </div>
+        <div class="bc-target"><span>Expertise comptable</span><span>Commissariat aux comptes</span></div>
+        <div class="bc-bot">
+          <div><div class="k">Durée</div><div class="v">12 mois min.</div></div>
+          <div><div class="k">Formation</div><div class="v">DCG → DSCG</div></div>
+          <div class="bc-logo"><i></i><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bandeau de résultats -->
+<div class="ticker ink" aria-label="Résultats clés"><div class="ticker-track" id="ticker"></div></div>
+
+<!-- ===================== À PROPOS ===================== -->
+<section class="block" id="a-propos">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="lhs"><div class="eyebrow mono">À propos</div><h2>Un profil <span class="hl">hybride</span>, ancré dans la comptabilité</h2></div></div>
+    <div class="about">
+      <div class="panel about-main reveal">
+        <p class="big">Je suis étudiant en DCG avec une formation orientée comptabilité et finance, tout en développant une expertise complémentaire en data et intelligence artificielle.</p>
+        <p class="sm">Mon objectif est de comprendre comment les technologies peuvent améliorer l’analyse financière, les processus comptables et la prise de décision.</p>
+      </div>
+      <div class="about-side reveal" id="keys"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJETS ===================== -->
+<section class="block" id="projets" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="lhs"><div class="eyebrow mono">Projets</div><h2>Des produits pensés pour la fonction <span class="hl">finance</span></h2>
+      <p>Analyse financière, pédagogie et outils pour indépendants : chaque projet part d’un besoin concret de la fonction finance.</p></div>
+      <div class="aside" id="projCount"></div>
+    </div>
+    <div class="projects" id="projects"></div>
+  </div>
+</section>
+
+<!-- ===================== EXPÉRIENCE ===================== -->
+<section class="block" id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="lhs"><div class="eyebrow mono">Expérience</div><h2>Des résultats mesurables en comptabilité</h2>
+      <p>Trois expériences, du multi-établissements au groupe international.</p></div>
+    </div>
+    <div class="xp-list" id="timeline"></div>
+    <div class="edu reveal" id="edu"></div>
+  </div>
+</section>
+
+<!-- ===================== COMPÉTENCES ===================== -->
+<section class="block" id="competences" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="lhs"><div class="eyebrow mono">Compétences</div><h2>Chaque compétence, <span class="hl">prouvée</span> sur le terrain</h2>
+      <p>Pour chaque compétence, les entreprises et les projets où je l’ai mise en œuvre.</p></div>
+    </div>
+    <div class="sk-wrap reveal">
+      <div class="sk-tabs" role="tablist" aria-label="Domaines de compétences" id="skTabs"></div>
+      <div class="panel sk-board" role="tabpanel" id="skBoard" aria-live="polite"></div>
+    </div>
+    <div class="stack" id="stack"></div>
+    <div class="panel langs reveal"><span class="mono">Langues</span><span id="langs" class="badges"></span></div>
+  </div>
+</section>
+
+<!-- ===================== ENGAGEMENT ===================== -->
+<section class="block" id="engagement" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="lhs"><div class="eyebrow mono">Engagement · Objectifs</div><h2>Les domaines qui orientent mon parcours</h2>
+      <p>Je cherche à me positionner à l’intersection de ces disciplines, là où l’expertise comptable rencontre l’analyse de données.</p></div>
+    </div>
+    <div class="focus reveal" id="focus"></div>
+    <div id="commit"></div>
+    <p class="statement reveal">Allier la rigueur de la comptabilité à la puissance de la donnée, pour des <span class="hl">décisions financières</span> mieux informées.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="block" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact ink reveal">
+      <div>
+        <div class="eyebrow mono">Contact</div>
+        <h2>Construisons quelque chose d’<span class="hl">utile</span>.</h2>
+        <p class="sub">Je recherche une alternance d’au moins 12 mois en cabinet d’expertise comptable ou de commissariat aux comptes, pour mon DCG puis mon DSCG. Écrivez-moi pour en discuter.</p>
+      </div>
+      <div class="channels" id="channels"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span><strong style="color:var(--text)">Mahamat Congo-Sienne</strong> · <span id="yr"></span></span>
+    <nav aria-label="Liens principaux" id="footLinks"></nav>
+  </div>
+</footer>
+
+<dialog class="pd" id="pd" aria-labelledby="pdTitle"><div class="pd-in" id="pdBody"></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =====================================================================
+   CONTENU DU PORTFOLIO — modifiez uniquement cette partie.
+   Laisser une valeur vide ('') masque proprement l'élément concerné.
+   ===================================================================== */
+const LINKS = {
+  email:    'sienne.mahamat@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/mahamat-s-8002ab235',
+  github:   'https://github.com/SIANA-FI',
+  cv:       ''    // URL publique du CV (PDF hébergé : Drive, GitHub, etc.)
+};
+
+/* Chiffres du hero (issus du CV) */
+const HERO_STATS = [
+  { value:'3', label:'expériences en comptabilité' },
+  { value:'33', label:'filiales outillées' },
+  { value:'3', label:'projets finance & tech' }
+];
+
+/* Bandeau défilant : résultats réels */
+const TICKER = [
+  { sym:'SALINS', val:'−79 %', lbl:'postes non soldés' },
+  { sym:'SALINS', val:'33', lbl:'filiales · pilotage du recouvrement' },
+  { sym:'ALTRAD', val:'100–150', lbl:'factures / jour' },
+  { sym:'ALTRAD', val:'12', lbl:'agences' },
+  { sym:'EHS', val:'1,5 sem → 3 j', lbl:'rapprochements bancaires' },
+  { sym:'EHS', val:'13', lbl:'établissements' },
+  { sym:'EHS', val:'2', lbl:'exercices rattrapés avant CAC' },
+  { sym:'DCG', val:'2025–2027', lbl:'IHECF' }
+];
+
+const KEYS = [
+  { code:'IHECF · 2025 – 2027', label:'DCG', main:true },
+  { code:'Socle', label:'Comptabilité & Finance' },
+  { code:'Outil', label:'Data' },
+  { code:'Levier', label:'Intelligence artificielle' },
+  { code:'Angle', label:'Intelligence économique' }
+];
+
+const PROJECTS = [
+  {
+    id:'cil', featured:true,
+    name:'Corporate Intelligence Lab',
+    type:'Finance · Data · Intelligence économique',
+    year:'',                 // ex. '2025'
+    desc:'Plateforme d’analyse financière et d’intelligence économique permettant d’extraire, structurer et analyser des données financières afin de produire des indicateurs, des scores et des visualisations utiles à la prise de décision.',
+    tech:['Python','Streamlit','Excel','n8n'],
+    features:['Extraction de données','Dashboard financier','Analyse de KPI','Scoring d’entreprises','Analyse UBO','Visualisation des relations','Exports','Automatisations n8n'],
+    demo:['Bolloré','LVMH','Air Liquide'],
+    visual:'network', links:{ demo:'', repo:'https://github.com/SIANA-FI/Corporate-Intelligence-Lab' }
+  },
+  {
+    id:'ratiomax',
+    name:'RatioMax',
+    type:'Éducation financière · IA · Mobile',
+    year:'',
+    desc:'Application de révision destinée aux étudiants en DCG. RatioMax s’appuie sur une logique de répétition espacée inspirée de la méthode J pour améliorer la mémorisation et suivre la maîtrise des notions.',
+    mix:['Pédagogie','Finance','Technologie','IA'],
+    tech:['React Native','Expo','Supabase'],
+    features:['Moteur Méthode J','Objectifs et suivi de maîtrise','Import de cours','Fiches de révision','Flashcards','Quiz évolutifs','Suivi de progression'],
+    visual:'spaced', links:{ demo:'', repo:'https://github.com/SIANA-FI/ratiomax-app' }
+  },
+  {
+    id:'baklyn',
+    name:'BAKLYN',
+    type:'SaaS · Fintech · Gestion administrative',
+    year:'',
+    desc:'Projet SaaS pour les indépendants et micro-entrepreneurs : une interface unique pour simplifier la gestion administrative, la facturation, la trésorerie et le suivi financier.',
+    tech:[],
+    features:['Facturation','Suivi de trésorerie','Provisions','Relances','Suivi administratif','Automatisation','Analyse financière'],
+    visual:'flow', links:{ demo:'', repo:'https://github.com/SIANA-FI/baklyn.2.0' }
+  }
+];
+
+const EXPERIENCES = [
+  { company:'La Compagnie des Salins', role:'Apprenti comptable · Service Comptabilité', period:'2025 – aujourd’hui', contract:'Contrat d’apprentissage',
+    missions:[
+      'Cycle client : facturation, règlements, relances et analyse des comptes clients / fournisseurs.',
+      'Suivi des rapprochements bancaires automatisés et analyse du recouvrement.',
+      'Fiabilisation de la base clients dans le cadre de la RFE : mise à jour des données légales des entités françaises.',
+      'Déploiement d’un outil de pilotage du recouvrement dans 33 filiales internationales, avec SAP Analytics Cloud.',
+      'Asset management & immobilisations : contrôle budgétaire, analyse des PV, suivi des projets d’investissement, mises en service et dotations aux amortissements.'
+    ],
+    results:[{ value:'−79 %', label:'de postes non soldés', down:true },{ value:'33', label:'filiales internationales équipées' }],
+    tools:['SAP Analytics Cloud'] },
+  { company:'Altrad Arnhold', role:'Comptable auxiliaire', period:'2025', contract:'Intérim',
+    missions:[
+      'Comptabilité fournisseurs (sous-traitance) : saisie et contrôle devis / commande / facture.',
+      'Trésorerie : rapprochements bancaires, écritures de cash-pooling, tableaux de trésorerie.',
+      'Fiscalité : déclarations de TVA CA3 mensuelles et écritures de régularisation.',
+      'Clôture mensuelle : cut-off et travaux de fin de période.',
+      'Clients et recouvrement : facturation à l’avancement, relances et suivi quotidien des impayés avec les équipes commerciales.',
+      'Reporting et consolidation : préparation des données financières groupe.'
+    ],
+    results:[{ value:'100 – 150', label:'factures traitées par jour' },{ value:'12', label:'agences' }],
+    tools:['ViaReport'] },
+  { company:'Association EHS', role:'Comptable', period:'2024 – 2025', contract:'CDI',
+    missions:[
+      'Comptabilité générale de 13 établissements médico-sociaux : achats, ventes, banques, lettrage, justification des comptes, immobilisations, clôtures.',
+      'Rattrapage de 2 exercices : apurement, correction d’anomalies et fiabilisation des processus avant intervention des CAC.',
+      'Clôture annuelle : révision et justification des comptes dans un contexte de réorganisation de la direction financière.',
+      'Structuration et automatisation des rapprochements bancaires pour 7 établissements.',
+      'Comptabilité analytique et contrôle de gestion : imputations, budgets prévisionnels, PPI, sur un périmètre financé notamment par l’ARS et les Conseils départementaux.'
+    ],
+    results:[{ value:'1,5 sem → 3 j', label:'rapprochements bancaires', down:true },{ value:'13', label:'établissements suivis' },{ value:'2', label:'exercices rattrapés' }],
+    tools:['Cegid Alpha','Suite Entreprise'] }
+];
+
+const EDUCATION = [
+  { school:'IHECF', title:'Diplôme de Comptabilité et de Gestion (DCG)', period:'2025 – 2027 · en cours', current:true },
+  { school:'Institut Saint-Pierre', title:'BTS Comptabilité et Gestion', period:'2021 – 2023' },
+  { school:'Lycée Louis Armand', title:'Bac pro Gestion Administration', period:'2018 – 2021' }
+];
+
+/* Compétences : chaque ligne indique où elle a été mise en œuvre.
+   pro = expérience professionnelle, prj = projet personnel. */
+const SKILLS = [
+  { id:'cpt', title:'Comptabilité', sub:'Tenue, révision, clôture', icon:'ledger', rows:[
+    ['Comptabilité générale et clôtures', {pro:['EHS','Altrad']}],
+    ['Fournisseurs, clients et recouvrement', {pro:['Altrad','Salins']}],
+    ['Rapprochements bancaires automatisés', {pro:['EHS','Altrad','Salins']}],
+    ['Immobilisations et amortissements', {pro:['Salins','EHS']}],
+    ['TVA (CA3) et régularisations', {pro:['Altrad']}],
+    ['Gestion multi-entités', {pro:['EHS · 13 étab.','Salins · 33 filiales']}]
+  ]},
+  { id:'fin', title:'Finance', sub:'Analyse, trésorerie, pilotage', icon:'chart', rows:[
+    ['Analyse financière et ratios', {prj:['Corporate Intelligence Lab']}],
+    ['Trésorerie et cash-pooling', {pro:['Altrad','EHS']}],
+    ['Comptabilité analytique, contrôle de gestion', {pro:['EHS']}],
+    ['Reporting, préparation à la consolidation', {pro:['Altrad']}],
+    ['Pilotage du recouvrement', {pro:['Salins']}],
+    ['Suivi de trésorerie et provisions', {prj:['BAKLYN']}]
+  ]},
+  { id:'data', title:'Data', sub:'Extraction, analyse, visualisation', icon:'grid', rows:[
+    ['Python', {prj:['Corporate Intelligence Lab']}],
+    ['Excel', {prj:['Corporate Intelligence Lab']}],
+    ['Dashboards et visualisation', {pro:['Salins · SAP SAC'],prj:['Corporate Intelligence Lab']}],
+    ['Scoring et analyse de KPI', {prj:['Corporate Intelligence Lab']}],
+    ['Fiabilisation de données', {pro:['Salins · RFE']}]
+  ]},
+  { id:'ia', title:'IA & Automatisation', sub:'Processus, workflows, produits', icon:'spark', rows:[
+    ['Automatisation des processus comptables', {pro:['EHS','Salins']}],
+    ['Workflows n8n', {prj:['Corporate Intelligence Lab']}],
+    ['Intégration de données', {prj:['Corporate Intelligence Lab']}],
+    ['Application IA appliquée à la formation', {prj:['RatioMax']}],
+    ['Produit SaaS d’automatisation administrative', {prj:['BAKLYN']}]
+  ]}
+];
+
+const STACK = [
+  { title:'ERP & comptabilité', tools:['SAP S/4HANA','Sage','Cegid Alpha','SAP Analytics Cloud','ViaReport','Suite Entreprise'] },
+  { title:'Data & analyse', tools:['Excel','Power BI','SQL','Python','Streamlit'] },
+  { title:'Automatisation', tools:['n8n','Make','Zapier'] },
+  { title:'Produit & déploiement', tools:['React Native','Expo','Supabase','Vercel','Hostinger'] }
+];
+
+const LANGUAGES = ['Français','Anglais professionnel (B1)'];
+
+const COMMITMENTS = [
+  { org:'Heaven.14', role:'Trésorier', text:'Association de promotion et de mise en lumière de talents artistiques.' }
+];
+
+const FOCUS = [
+  { code:'FISC', title:'Fiscalité', text:'Comprendre les mécanismes fiscaux et leur effet sur les décisions des entreprises.' },
+  { code:'FIN', title:'Finance', text:'Lire la performance, la structure financière et la trésorerie d’une organisation.' },
+  { code:'AUD', title:'Audit', text:'Fiabiliser l’information financière par la méthode, le contrôle et la donnée.' },
+  { code:'IE', title:'Intelligence économique', text:'Analyser les entreprises, leurs actionnaires et leurs relations pour éclairer la décision.' },
+  { code:'DATA', title:'Data', text:'Structurer et visualiser l’information pour la rendre exploitable.' },
+  { code:'IA', title:'Intelligence artificielle', text:'Automatiser les tâches répétitives et enrichir l’analyse financière.' }
+];
+
+/* =====================================================================
+   RENDU — pas besoin de modifier en dessous.
+   ===================================================================== */
+document.documentElement.classList.add('js');
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const hasUrl = u => typeof u === 'string' && u.trim() !== '';
+const I = {
+  gh:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>',
+  arrow:'<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
+  ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>',
+  copy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>',
+  down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>',
+  close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+  ledger:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M7 8h2M7 12h2M15 8h2M15 12h2"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7 16v-4M12 16V8M17 16v-7"/></svg>',
+  grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>',
+  spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M18 16l.8 2.2L21 19l-2.2.8L18 22l-.8-2.2L15 19l2.2-.8z"/></svg>',
+  ne:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+};
+
+/* Visuels schématiques */
+const VISUALS = {
+  network(){
+    const n=[{x:200,y:46,l:'UBO',k:'ubo'},{x:200,y:132,l:'Holding',k:''},{x:78,y:214,l:'Filiale',k:''},{x:200,y:232,l:'Société cible',k:'tgt'},{x:322,y:214,l:'Participation',k:''}];
+    const e=[[0,1],[1,2],[1,3],[1,4],[3,4]];
+    const fill=k=>k==='tgt'?'#3E160C':k==='ubo'?'#785D32':'#050A30';
+    const tc=k=>'#E8D9C4';
+    return `<svg viewBox="0 0 400 285" role="img" aria-label="Schéma de relations entre bénéficiaire effectif, holding et filiales">
+      <defs><filter id="gl" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+      ${e.map(([a,b])=>`<line x1="${n[a].x}" y1="${n[a].y}" x2="${n[b].x}" y2="${n[b].y}" stroke="rgba(5,10,48,.45)" stroke-width="1.2" ${a===3?'stroke-dasharray="3 4"':''}/>`).join('')}
+      <circle cx="200" cy="232" r="26" fill="rgba(62,22,12,.35)" filter="url(#gl)"/>
+      ${n.map(p=>{const w=p.l.length*7.4+30;return `<g><rect x="${p.x-w/2}" y="${p.y-15}" width="${w}" height="30" rx="15" fill="${fill(p.k)}" stroke="${p.k?'none':'rgba(5,10,48,.22)'}"/><text x="${p.x}" y="${p.y+4.5}" text-anchor="middle" font-family="Geist, Arial, sans-serif" font-size="12.5" font-weight="600" fill="${tc(p.k)}">${p.l}</text></g>`}).join('')}
+      <text x="10" y="278" font-family="Geist Mono, monospace" font-size="9" letter-spacing="1" fill="#76695A">ANALYSE UBO · CARTOGRAPHIE DES LIENS</text>
+    </svg>`;
+  },
+  spaced(){
+    const pts=[['J',0],['J+1',1],['J+3',3],['J+7',7],['J+15',15],['J+30',30]];
+    const X=d=>30+Math.log(d+1)/Math.log(31)*330;
+    let arcs='',dots='';
+    for(let i=0;i<pts.length;i++){
+      const x=X(pts[i][1]);
+      if(i){const px=X(pts[i-1][1]);const mx=(px+x)/2;const h=Math.min(18+(x-px)*.45,62);arcs+=`<path d="M${px} 120 Q${mx} ${120-h} ${x} 120" fill="none" stroke="rgba(5,10,48,.6)" stroke-width="1.4"/>`;}
+      const last=i===pts.length-1;
+      dots+=`${last?`<circle cx="${x}" cy="120" r="14" fill="rgba(62,22,12,.18)"/>`:''}<circle cx="${x}" cy="120" r="${last?7:5}" fill="${last?'#3E160C':'#F1E7D7'}" stroke="${last?'#3E160C':'#050A30'}" stroke-width="1.5"/><text x="${x}" y="148" text-anchor="middle" font-family="Geist Mono, monospace" font-size="10" fill="#4B4762">${pts[i][0]}</text>`;
+    }
+    return `<svg viewBox="0 0 390 170" role="img" aria-label="Illustration de révisions espacées selon la méthode J"><line x1="20" y1="120" x2="372" y2="120" stroke="rgba(5,10,48,.15)"/>${arcs}${dots}<text x="20" y="30" font-family="Geist Mono, monospace" font-size="9" letter-spacing="1" fill="#76695A">RÉPÉTITION ESPACÉE · MÉTHODE J</text></svg>`;
+  },
+  flow(){
+    const s=[['Facture émise','Ventes'],['Relance','Suivi'],['Encaissement','Banque'],['Provisions','Charges'],['Trésorerie disponible','Solde']];
+    return `<div class="flow vis-inner" role="img" aria-label="Parcours d'une facture jusqu'à la trésorerie disponible">${s.map((x,i)=>`${i?'<span class="arrow"></span>':''}<div class="${i===s.length-1?'end':''}">${x[0]}<span class="mono">${x[1]}</span></div>`).join('')}</div>`;
+  }
+};
+
+/* Hero */
+$('#heroStats').innerHTML = HERO_STATS.map(s=>`<div><b>${esc(s.value)}</b><span>${esc(s.label)}</span></div>`).join('');
+const tk = TICKER.map(t=>`<div class="tk"><span class="sym">${esc(t.sym)}</span><span class="val">${esc(t.val)}</span><span class="lbl">${esc(t.lbl)}</span></div>`).join('');
+$('#ticker').innerHTML = tk + tk.replace(/class="tk"/g,'class="tk" aria-hidden="true"');
+
+/* Guillochis (motif de billet) */
+(function(){
+  const c=document.getElementById('guil'); if(!c) return;
+  const draw=()=>{
+    const r=c.getBoundingClientRect(), d=Math.min(devicePixelRatio||1,2);
+    c.width=r.width*d; c.height=r.height*d; const g=c.getContext('2d'); g.scale(d,d);
+    g.lineWidth=.55;
+    const rose=(cx,cy,R,amp,n,count,col)=>{
+      g.strokeStyle=col;
+      for(let k=0;k<count;k++){
+        const ph=k*Math.PI*2/count; g.beginPath();
+        for(let t=0;t<=Math.PI*2+.01;t+=.01){
+          const rr=R+amp*Math.sin(n*t+ph); const x=cx+rr*Math.cos(t), y=cy+rr*Math.sin(t)*.82;
+          t?g.lineTo(x,y):g.moveTo(x,y);
+        } g.stroke();
+      }
+    };
+    rose(r.width*.86,r.height*.5,r.height*.62,r.height*.06,14,10,'rgba(201,164,106,.35)');
+    rose(r.width*.86,r.height*.5,r.height*.38,r.height*.04,10,8,'rgba(232,217,196,.22)');
+    g.strokeStyle='rgba(201,164,106,.28)';
+    for(let k=0;k<6;k++){ g.beginPath(); for(let x=0;x<=r.width;x+=2){ const y=r.height-14-k*3+Math.sin(x/9+k*.7)*3; x?g.lineTo(x,y):g.moveTo(x,y);} g.stroke(); }
+  };
+  draw(); addEventListener('resize',()=>{ clearTimeout(draw._t); draw._t=setTimeout(draw,150); });
+})();
+
+/* Carte : inclinaison au survol */
+const bc = $('#bcard');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(bc && !reduce && matchMedia('(hover:hover)').matches){
+  const stage = bc.parentElement;
+  stage.addEventListener('pointermove',e=>{
+    const r=bc.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    bc.style.transform=`rotateY(${(x-.5)*12}deg) rotateX(${(.5-y)*10}deg)`;
+    bc.style.setProperty('--mx',(x*100)+'%'); bc.style.setProperty('--my',(y*100)+'%');
+  });
+  stage.addEventListener('pointerleave',()=>{ bc.style.transform=''; });
+}
+
+/* À propos */
+$('#keys').innerHTML = KEYS.map(k=>`<div class="panel glow key${k.main?' main':''}"><span class="mono">${esc(k.code)}</span><strong>${esc(k.label)}</strong></div>`).join('');
+
+/* Projets */
+$('#projCount').textContent = `${String(PROJECTS.length).padStart(2,'0')} projets`;
+const MAX_FEATS = 4;
+$('#projects').innerHTML = PROJECTS.map((p,i)=>{
+  const feats = p.featured ? p.features : p.features.slice(0,MAX_FEATS);
+  const rest = p.features.length - feats.length;
+  return `<article class="panel glow card reveal${p.featured?' featured':''}">
+    <div class="visual">${VISUALS[p.visual]()}</div>
+    <div class="body">
+      <div class="meta"><span class="mono">${esc(p.type)}</span><span class="mono idx">${hasUrl(p.year)?esc(p.year):String(i+1).padStart(2,'0')}</span></div>
+      <h3>${esc(p.name)}</h3>
+      <p class="desc">${esc(p.desc)}</p>
+      ${p.mix?`<div class="mix">${p.mix.map(m=>`<span>${esc(m)}</span>`).join('')}</div>`:''}
+      <ul class="feats">${feats.map(f=>`<li>${I.check}${esc(f)}</li>`).join('')}${rest>0?`<li class="more">+ ${rest} autres fonctionnalités</li>`:''}</ul>
+      ${p.demo?`<div class="demo">Démonstrations ${p.demo.map(d=>`<span class="co">${esc(d)}</span>`).join('')}</div>`:''}
+      <div class="card-foot">
+        ${p.tech.length?`<div class="badges">${p.tech.map(t=>`<span class="badge">${esc(t)}</span>`).join('')}</div>`:''}
+        <div class="card-acts">${hasUrl(p.links.repo)?`<a class="btn btn-ghost btn-sm gh" href="${esc(p.links.repo)}" target="_blank" rel="noopener" aria-label="Voir ${esc(p.name)} sur GitHub">${I.gh}<span>GitHub</span></a>`:''}<button class="btn btn-primary btn-sm" data-open="${p.id}">Voir le projet ${I.arrow}</button></div>
+      </div>
+    </div>
+  </article>`;
+}).join('');
+
+const pd = $('#pd');
+function openProject(id){
+  const p = PROJECTS.find(x=>x.id===id); if(!p) return;
+  const acts=[];
+  if(hasUrl(p.links.demo)) acts.push(`<a class="btn btn-primary" href="${esc(p.links.demo)}" target="_blank" rel="noopener">Voir la simulation ${I.ext}</a>`);
+  if(hasUrl(p.links.repo)) acts.push(`<a class="btn ${acts.length?'btn-ghost':'btn-primary'} gh" href="${esc(p.links.repo)}" target="_blank" rel="noopener">${I.gh} Voir sur GitHub</a>`);
+  acts.push(`<a class="btn btn-ghost" href="#contact" data-close>Échanger sur ce projet ${I.arrow}</a>`);
+  $('#pdBody').innerHTML = `
+    <div class="pd-top"><div><span class="mono">${esc(p.type)}${hasUrl(p.year)?' · '+esc(p.year):''}</span><h3 id="pdTitle">${esc(p.name)}</h3></div>
+      <button class="x" data-close aria-label="Fermer">${I.close}</button></div>
+    <p class="d">${esc(p.desc)}</p>
+    ${p.mix?`<div><h4>Positionnement</h4><div class="mix">${p.mix.map(m=>`<span>${esc(m)}</span>`).join('')}</div></div>`:''}
+    <div><h4>Fonctionnalités</h4><ul class="feats">${p.features.map(f=>`<li>${I.check}${esc(f)}</li>`).join('')}</ul></div>
+    ${p.demo?`<div><h4>Entreprises utilisées en démonstration</h4><div class="demo">${p.demo.map(d=>`<span class="co">${esc(d)}</span>`).join('')}</div></div>`:''}
+    ${p.tech.length?`<div><h4>Technologies</h4><div class="badges">${p.tech.map(t=>`<span class="badge">${esc(t)}</span>`).join('')}</div></div>`:''}
+    <div class="pd-actions">${acts.join('')}</div>`;
+  if(pd.showModal) pd.showModal(); else pd.setAttribute('open','');
+}
+document.addEventListener('click',e=>{
+  const o=e.target.closest('[data-open]'); if(o){ openProject(o.dataset.open); return; }
+  if(e.target.closest('[data-close]') || e.target===pd){ pd.close ? pd.close() : pd.removeAttribute('open'); }
+});
+
+/* Expérience */
+$('#timeline').innerHTML = EXPERIENCES.map(x=>`<article class="panel glow xp reveal">
+  <div class="co"><span class="mono">${esc(x.period)}</span><h3>${esc(x.company)}</h3><span class="role">${esc(x.role)}</span><span class="ctr">${esc(x.contract||'')}</span>
+    ${x.results?.length?`<div class="kpis">${x.results.map(r=>`<div class="kpi"><b class="num">${r.down?I.down:''}${esc(r.value)}</b><span>${esc(r.label)}</span></div>`).join('')}</div>`:''}
+  </div>
+  <div>
+    <ul>${x.missions.map(m=>`<li>${esc(m)}</li>`).join('')}</ul>
+    ${x.tools?.length?`<div class="badges">${x.tools.map(t=>`<span class="badge">${esc(t)}</span>`).join('')}</div>`:''}
+  </div></article>`).join('');
+$('#edu').innerHTML = EDUCATION.map(e=>`<div class="panel glow edu-item${e.current?' cur':''}"><span class="mono">${esc(e.period)}</span><b>${esc(e.title)}</b><span>${esc(e.school)}</span></div>`).join('');
+
+/* Compétences */
+const tabs = $('#skTabs'), board = $('#skBoard');
+tabs.innerHTML = SKILLS.map((s,i)=>`<button class="sk-tab" role="tab" id="tab-${s.id}" aria-selected="${i===0}" aria-controls="skBoard" data-sk="${s.id}">
+  <span class="ic">${I[s.icon]}</span><span><b>${esc(s.title)}</b><small>${esc(s.sub)}</small></span><span class="cnt">${String(s.rows.length).padStart(2,'0')}</span></button>`).join('');
+function showSkill(id){
+  const s = SKILLS.find(x=>x.id===id) || SKILLS[0];
+  tabs.querySelectorAll('.sk-tab').forEach(t=>t.setAttribute('aria-selected', t.dataset.sk===s.id));
+  board.setAttribute('aria-labelledby','tab-'+s.id);
+  board.innerHTML = `<div class="sk-board-head"><h3>${esc(s.title)}</h3><span class="mono">${s.rows.length} compétences · mises en œuvre</span></div>
+    <div class="sk-rows">${s.rows.map(([n,c],i)=>`<div class="sk-row" style="animation-delay:${i*.05}s"><span class="nm"><i></i>${esc(n)}</span><span class="ctx">${(c.pro||[]).map(x=>`<span class="pro">${esc(x)}</span>`).join('')}${(c.prj||[]).map(x=>`<span class="prj">${esc(x)}</span>`).join('')}</span></div>`).join('')}</div>
+    <div class="legend"><span><i style="border-color:var(--bronze);background:rgba(120,93,50,.12)"></i>Expérience professionnelle</span><span><i style="border-color:var(--acc);background:var(--acc-a)"></i>Projet personnel</span></div>`;
+}
+tabs.addEventListener('click',e=>{ const b=e.target.closest('.sk-tab'); if(b) showSkill(b.dataset.sk); });
+tabs.addEventListener('keydown',e=>{
+  if(!['ArrowDown','ArrowUp','ArrowLeft','ArrowRight'].includes(e.key)) return;
+  const all=[...tabs.querySelectorAll('.sk-tab')]; const i=all.indexOf(document.activeElement); if(i<0) return;
+  e.preventDefault(); const n=all[(i+(e.key==='ArrowDown'||e.key==='ArrowRight'?1:-1)+all.length)%all.length]; n.focus(); showSkill(n.dataset.sk);
+});
+showSkill(SKILLS[0].id);
+const abbr = t => { const w=t.replace(/[^A-Za-z0-9 ]/g,' ').trim().split(/\s+/); return (w.length>1?w[0][0]+w[1][0]:w[0].slice(0,2)).toUpperCase(); };
+$('#stack').innerHTML = STACK.map(c=>`<div class="panel stack-col reveal"><span class="mono">${esc(c.title)}</span>${c.tools.map(t=>`<div class="tool"><i>${esc(abbr(t))}</i>${esc(t)}</div>`).join('')}</div>`).join('');
+$('#langs').innerHTML = LANGUAGES.map(l=>`<span class="badge">${esc(l)}</span>`).join('');
+
+/* Engagement */
+$('#focus').innerHTML = FOCUS.map(f=>`<div class="panel glow focus-item"><div class="top"><span class="mono">${esc(f.code)}</span>${I.ne}</div><h3>${esc(f.title)}</h3><p>${esc(f.text)}</p></div>`).join('');
+$('#commit').innerHTML = COMMITMENTS.map(c=>`<div class="panel commit reveal"><span class="badge-r">Associatif</span><b>${esc(c.role)} · ${esc(c.org)}</b><p>${esc(c.text)}</p></div>`).join('');
+
+/* Contact */
+const CH = [
+  { k:'Email', v:LINKS.email, copy:true },
+  { k:'LinkedIn', v:LINKS.linkedin, url:LINKS.linkedin, off:'Lien à venir' },
+  { k:'GitHub', v:LINKS.github, url:LINKS.github, off:'Lien à venir' },
+  { k:'CV', v:hasUrl(LINKS.cv)?'Consulter le CV (PDF)':'', url:LINKS.cv, off:'Disponible sur demande par email' }
+];
+const pretty = u => u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,'');
+$('#channels').innerHTML = CH.map(c=>{
+  if(c.copy && hasUrl(c.v)) return `<div class="ch"><span class="mono">${c.k}</span><span class="val" id="mailVal">${esc(c.v)}</span><button class="go" id="copyMail" aria-label="Copier l’adresse email">${I.copy}</button></div>`;
+  if(hasUrl(c.url)) return `<a class="ch" href="${esc(c.url)}" target="_blank" rel="noopener"><span class="mono">${c.k}</span><span class="val">${esc(c.k==='CV'?c.v:pretty(c.v))}</span><span class="go">${I.ext}</span></a>`;
+  return `<div class="ch"><span class="mono">${c.k}</span><span class="val off">${c.off||''}</span><span></span></div>`;
+}).join('');
+const toast = msg => { const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('show'),2200); };
+$('#copyMail')?.addEventListener('click',()=>{
+  const v=LINKS.email;
+  const sel=()=>{ const r=document.createRange(); r.selectNodeContents($('#mailVal')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); toast('Adresse sélectionnée'); };
+  if(navigator.clipboard?.writeText) navigator.clipboard.writeText(v).then(()=>toast('Adresse email copiée'),sel); else sel();
+});
+document.querySelectorAll('[data-cv]').forEach(a=>{ if(hasUrl(LINKS.cv)){ a.href=LINKS.cv; a.target='_blank'; a.rel='noopener'; } });
+
+/* Footer */
+$('#yr').textContent = new Date().getFullYear();
+const fl=[['Projets','#projets'],['Contact','#contact']];
+if(hasUrl(LINKS.linkedin)) fl.push(['LinkedIn',LINKS.linkedin]);
+if(hasUrl(LINKS.github)) fl.push(['GitHub',LINKS.github]);
+fl.push(['CV', hasUrl(LINKS.cv)?LINKS.cv:'#contact']);
+$('#footLinks').innerHTML = fl.map(([l,h])=>`<a href="${esc(h)}"${h.startsWith('http')?' target="_blank" rel="noopener"':''}>${l}</a>`).join('');
+
+/* Navigation */
+const nav=$('#nav'), btn=$('#menuBtn');
+const onScroll=()=>nav.classList.toggle('scrolled', scrollY>8);
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+btn.addEventListener('click',()=>{ const o=nav.classList.toggle('open'); btn.setAttribute('aria-expanded',o); });
+document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>{ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }));
+const navLinks=[...document.querySelectorAll('#links a')];
+if('IntersectionObserver' in window){
+  const so=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id)); }),{rootMargin:'-45% 0px -50% 0px'});
+  navLinks.forEach(a=>{ const el=document.getElementById(a.getAttribute('href').slice(1)); if(el) so.observe(el); });
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }),{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+} else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+</script>
+</body></html>
